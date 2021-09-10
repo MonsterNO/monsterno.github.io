@@ -39,14 +39,15 @@ Page({
 
 ## 组件属性
 
-| 属性 | 类型 | 默认值 | 说明 |
-|:---:|:---:|:---:|---|
-| data | String |  | 文本内容 |
-| typeNumber | number | -1 | 类型 |
-| errorCorrectLevel | number | 2 | 误差校正等级 |
-| width | number | 200 | canvas 组件的宽度 |
-| height | number | 200 | canvas 组件的高度 |
-| whiteSpace | number | 0 | 四周留白 |
-| fgColor	 | String | black | 前景色 |
-| bgColor | String | white | 背景色 |
-| bind:click | Function |  | 点击事件 |
+|        属性         |    类型    |  默认值  | 说明           |
+| :---------------: | :------: | :---: | ------------ |
+|       data        |  String  |       | 文本内容         |
+|    typeNumber     |  number  |  -1   | 类型           |
+| errorCorrectLevel |  number  |   2   | 误差校正等级       |
+|       width       |  number  |  200  | canvas 组件的宽度 |
+|      height       |  number  |  200  | canvas 组件的高度 |
+|    whiteSpace     |  number  |   0   | 四周留白         |
+|      fgColor      |  String  | black | 前景色          |
+|      bgColor      |  String  | white | 背景色          |
+|     lp-class      |  string  |       | 自定义样式        |
+|    bind:click     | Function |       | 点击事件         |
