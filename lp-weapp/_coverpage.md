@@ -1,5 +1,5 @@
 ![logo](image/logo.png)
-# lp-weapp <small>1.0.12</small>
+# lp-weapp <small>1.0.14</small>
 
 > 微信小程序 UI 组件库。
 

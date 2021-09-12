@@ -58,6 +58,12 @@ cd lp-weapp
 <lp-swiper list="{{banner}}" />
 ```
 
+## 预览
+
+<div align="center">
+    <img style="width:200px" src="https://cdn.jsdelivr.net/gh/monsterno/cdn@master/img/lp-weapp.png" />
+</div>
+
 ## License
 
 MIT
