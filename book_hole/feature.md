@@ -12,6 +12,19 @@
 
 **技术点：** 获取手机号、使用uuid生成唯一id、鉴权
 
+**微信小程序授权pc登录**
+
+* pc生成授权码
+* 生成带授权码的小程序登录页的太阳码
+* openid与授权码绑定
+* 检查绑定状态
+
+**注意点：** 小程序码转base64供前端使用
+
+* 请求微信生成小程序码的接口返回的是buffer类型，请求时需要在同级加响应类型`responseType: "arraybuffer"`
+* 使用buffer转为base64`Buffer.from(img, "binary").toString("base64")`
+* 拼接前缀`data:image/png;base64,`
+
 ## 字典管理
 
 包含全站所用到的基础数据，通过类型编组。
