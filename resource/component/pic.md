@@ -43,14 +43,14 @@
 - [官方文档](https://github.com/avidofood/vue-responsive-video-background-player#readme)
 - [github](https://github.com/avidofood/vue-responsive-video-background-player)
 
-## Vue-lazyload-next
+## Vue-lazyload
 
-> vue-lazyload for vue3 懒加载
+> 图片懒加载
 
 **资源地址**
 
-- [官方文档](https://github.com/caozhong1996/vue-lazyload-next#readme)
-- [github](https://github.com/caozhong1996/vue-lazyload-next)
+- [官方文档](http://hilongjw.github.io/vue-lazyload/)
+- [github](https://github.com/hilongjw/vue-lazyload)
 
 ## Vue preview
 

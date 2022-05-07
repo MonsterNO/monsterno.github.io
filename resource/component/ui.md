@@ -176,5 +176,33 @@
 - [官方文档](https://www.wuxui.com/#/)
 - [github](https://github.com/wux-weapp/wux-weapp/)
 
+##  Nut-UI- Taro
+
+>  京东风格移动端 Vue2、Vue3 组件库
+
+**资源地址**
+
+- [官方文档](https://nutui.jd.com/#/starttaro)
+- [github](https://nutui.jd.com/#/starttaro)
+
+##  NutUI 3.0
+
+>  NutUI 是京东风格的 Vue 移动端组件库，开发和服务于移动Web界面的企业级产品。
+
+**资源地址**
+
+- [官方文档](https://nutui.jd.com/#/intro)
+- [github](https://github.com/jdf2e/nutui)
+- [gitee](https://gitee.com/jd-platform-opensource/nutui)
+
+##  Mand Mobile Next
+
+>  Mand Mobile Next面向金融场景，基于 Vue 3.0 移动端组件库
+
+**资源地址**
+
+- [官方文档](https://mand-mobile.github.io/mand-mobile-next/zh-CN/)
+- [github](https://github.com/mand-mobile/mand-mobile-next)
+
 
 
