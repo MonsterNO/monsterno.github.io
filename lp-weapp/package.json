@@ -1,0 +1,16 @@
+{
+  "name": "lp-weapp",
+  "version": "1.0.0",
+  "description": "lp-weapp组件文档",
+  "main": "index.js",
+  "author": "lingping",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.9.8",
+    "vuepress": "^1.9.8"
+  }
+}
