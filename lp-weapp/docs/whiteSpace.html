@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>whiteSpace 四周留白 | lp-weapp</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/lp-weapp/favicon.ico">
+    <meta name="description" content="lp-weapp微信小程序 UI 组件库">
+    
+    <link rel="preload" href="/lp-weapp/assets/css/0.styles.39fb18bb.css" as="style"><link rel="preload" href="/lp-weapp/assets/js/app.46c41fc2.js" as="script"><link rel="preload" href="/lp-weapp/assets/js/2.60c6961f.js" as="script"><link rel="preload" href="/lp-weapp/assets/js/10.e27d42ab.js" as="script"><link rel="prefetch" href="/lp-weapp/assets/js/3.e6ae7b8b.js"><link rel="prefetch" href="/lp-weapp/assets/js/4.c69c5b0e.js"><link rel="prefetch" href="/lp-weapp/assets/js/5.503a829d.js"><link rel="prefetch" href="/lp-weapp/assets/js/6.61e87507.js"><link rel="prefetch" href="/lp-weapp/assets/js/7.4890c497.js"><link rel="prefetch" href="/lp-weapp/assets/js/8.56c9d167.js"><link rel="prefetch" href="/lp-weapp/assets/js/9.b876b8d8.js">
+    <link rel="stylesheet" href="/lp-weapp/assets/css/0.styles.39fb18bb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/lp-weapp/" class="home-link router-link-active"><!----> <span class="site-name">lp-weapp</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/lp-weapp/docs/" class="nav-link router-link-active">
+  文档
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/lp-weapp/docs/" class="nav-link router-link-active">
+  文档
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>开发指南</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/lp-weapp/docs/" aria-current="page" class="sidebar-link">快速开始</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>基础组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/lp-weapp/docs/banner.html" class="sidebar-link">Banner 轮播图</a></li><li><a href="/lp-weapp/docs/whiteSpace.html" aria-current="page" class="active sidebar-link">whiteSpace 四周留白</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="whitespace-四周留白"><a href="#whitespace-四周留白" class="header-anchor">#</a> whiteSpace 四周留白</h1> <p>布局组件，四周留白</p> <h2 id="引入"><a href="#引入" class="header-anchor">#</a> 引入</h2> <p>在 app.json 或 index.json 中引入组件</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token string-property property">&quot;usingComponents&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+   <span class="token string-property property">&quot;lp-white-space&quot;</span><span class="token operator">:</span> <span class="token string">&quot;lp-weapp/white-space/index&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="代码演示"><a href="#代码演示" class="header-anchor">#</a> 代码演示</h2> <h3 id="基础使用"><a href="#基础使用" class="header-anchor">#</a> 基础使用</h3> <div class="language-wxml extra-class"><pre class="language-text"><code>&lt;lp-white-space&gt;
+  &lt;view&gt;四周留白&lt;/view&gt;
+&lt;/lp-white-space&gt;
+
+&lt;lp-white-space size=&quot;small&quot;&gt;
+  &lt;view&gt;四周留白&lt;/view&gt;
+&lt;/lp-white-space&gt;
+
+&lt;lp-white-space bodyStyle=&quot;{{[20]}}&quot;&gt;
+  &lt;view&gt;四周留白&lt;/view&gt;
+&lt;/lp-white-space&gt;
+</code></pre></div><h2 id="api"><a href="#api" class="header-anchor">#</a> API</h2> <table><thead><tr><th>参数</th> <th>说明</th> <th>类型</th> <th>默认值</th> <th>备注</th></tr></thead> <tbody><tr><td>size</td> <td>留白间距模式</td> <td>String</td> <td>defalut</td> <td>可选值：<br>small：10rpx<br>default：20rpx<br>large：30rpx</td></tr> <tr><td>bodyStyle</td> <td>自定义边距</td> <td>Array</td> <td>[]</td> <td>数组中接受四个值，按照css逻辑实现</td></tr></tbody></table> <div class="custom-block tip"><p class="custom-block-title">bodyStyle数组中数值解释</p> <p>一个值：四周边距一致；</p> <p>两个值：第一个值代表上下边距，第二个值代表左右边距；</p> <p>三个值：第一个值代表上边距，第二个值代表左右边距，第三个值代表下边距；</p> <p>四个值：按照上右下左的顺序；</p> <p>同css中margin的逻辑一致。</p></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/lp-weapp/docs/banner.html" class="prev">
+        Banner 轮播图
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/lp-weapp/assets/js/app.46c41fc2.js" defer></script><script src="/lp-weapp/assets/js/2.60c6961f.js" defer></script><script src="/lp-weapp/assets/js/10.e27d42ab.js" defer></script>
+  </body>
+</html>
