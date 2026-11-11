@@ -1,4 +1,0 @@
-Sitemap: https://www.lingping.icu/sitemap.xml
-
-User-agent:*
-Disallow:
