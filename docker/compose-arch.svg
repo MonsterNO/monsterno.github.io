@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-label="Compose 运行关系图">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="1199" height="429" rx="16" fill="#ffffff" stroke="#e5e7eb"/>
+
+  <text x="40" y="50" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#111827">Compose 项目 demo 的运行关系</text>
+
+  <!-- 浏览器 -->
+  <rect x="20" y="78" width="230" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="36" y="110" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700" fill="#6b7280">浏览器</text>
+  <text x="36" y="140" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">宿主机 8080 端口</text>
+  <text x="36" y="164" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">打开 localhost:8080</text>
+
+  <line x1="252" y1="153" x2="322" y2="153" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="287" y="143" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6b7280">8080:80</text>
+
+  <!-- web 容器 -->
+  <rect x="330" y="78" width="230" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="346" y="110" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700" fill="#2496ed">web 容器</text>
+  <text x="346" y="140" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">build: .（本地构建）</text>
+  <text x="346" y="164" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">ports: "8080:80"</text>
+  <text x="346" y="188" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">restart: unless-stopped</text>
+
+  <line x1="562" y1="153" x2="632" y2="153" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="597" y="143" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6b7280">db:3306</text>
+
+  <!-- db 容器 -->
+  <rect x="640" y="78" width="230" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="656" y="110" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700" fill="#16a34a">db 容器</text>
+  <text x="656" y="140" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">image: mysql:8.4</text>
+  <text x="656" y="164" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">healthcheck 通过才放行</text>
+  <text x="656" y="188" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">挂载 db-data 卷</text>
+
+  <line x1="872" y1="153" x2="942" y2="153" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="907" y="143" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6b7280">挂载</text>
+
+  <!-- 命名卷 -->
+  <rect x="950" y="78" width="230" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="966" y="110" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#d97706">命名卷 demo_db-data</text>
+  <text x="966" y="140" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">Docker 管理</text>
+  <text x="966" y="164" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">/var/lib/docker/volumes/</text>
+  <text x="966" y="188" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">demo_db-data/_data</text>
+
+  <!-- 说明区 -->
+  <rect x="20" y="270" width="1160" height="130" rx="12" fill="none" stroke="#d8dee4" stroke-dasharray="6 4"/>
+  <text x="44" y="302" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" fill="#374151">一条 docker compose up -d：按依赖顺序建好 2 个容器、1 张网络（demo_default）、1 个命名卷</text>
+  <text x="44" y="330" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" fill="#374151">一条 docker compose down：容器和网络收走，命名卷保留（除非加 -v）</text>
+  <text x="44" y="358" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" fill="#374151">容器之间用服务名互相访问：web 里直接连 db:3306，不用记 IP</text>
+</svg>

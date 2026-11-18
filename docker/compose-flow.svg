@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560" role="img" aria-label="compose up 启动流程">
+  <rect x="0.5" y="0.5" width="799" height="559" rx="16" fill="#ffffff" stroke="#e5e7eb"/>
+
+  <text x="40" y="46" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#111827">一次 docker compose up -d 做了什么</text>
+
+  <line x1="70" y1="112" x2="70" y2="480" stroke="#cbd5e1" stroke-width="2"/>
+
+  <!-- 1 -->
+  <circle cx="70" cy="100" r="13" fill="#2496ed"/>
+  <text x="70" y="105" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+  <text x="100" y="105" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" fill="#1f2328">docker compose up -d</text>
+
+  <!-- 2 -->
+  <circle cx="70" cy="156" r="13" fill="#2496ed"/>
+  <text x="70" y="161" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#ffffff">2</text>
+  <text x="100" y="161" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" fill="#1f2328">读取 compose.yaml 与 .env，做变量插值</text>
+
+  <!-- 3 -->
+  <circle cx="70" cy="212" r="13" fill="#2496ed"/>
+  <text x="70" y="217" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#ffffff">3</text>
+  <text x="100" y="217" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" fill="#1f2328">准备镜像：有 build 就构建，没有就 pull</text>
+
+  <!-- 4 -->
+  <circle cx="70" cy="268" r="13" fill="#2496ed"/>
+  <text x="70" y="273" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#ffffff">4</text>
+  <text x="100" y="273" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" fill="#1f2328">创建网络 demo_default、命名卷 demo_db-data（已存在则复用）</text>
+
+  <!-- 5 -->
+  <circle cx="70" cy="324" r="13" fill="#2496ed"/>
+  <text x="70" y="329" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#ffffff">5</text>
+  <text x="100" y="329" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" fill="#1f2328">按 depends_on 顺序启动 db</text>
+
+  <!-- 6 -->
+  <circle cx="70" cy="380" r="13" fill="#16a34a"/>
+  <text x="70" y="385" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#ffffff">6</text>
+  <text x="100" y="385" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" fill="#1f2328">等 healthcheck 通过（start_period 30s / retries 5）</text>
+  <text x="470" y="385" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#9ca3af">不通过 → web 不启动</text>
+
+  <!-- 7 -->
+  <circle cx="70" cy="436" r="13" fill="#2496ed"/>
+  <text x="70" y="441" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#ffffff">7</text>
+  <text x="100" y="441" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" fill="#1f2328">启动 web，发布宿主机 8080 端口</text>
+
+  <!-- 8 -->
+  <circle cx="70" cy="492" r="13" fill="#2496ed"/>
+  <text x="70" y="497" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#ffffff">8</text>
+  <text x="100" y="497" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" fill="#1f2328">全部 healthy，docker compose ps 显示 running</text>
+</svg>

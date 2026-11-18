@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-label="多阶段构建示意图">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="1199" height="429" rx="16" fill="#ffffff" stroke="#e5e7eb"/>
+
+  <text x="40" y="50" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#111827">多阶段构建：builder 阶段不进最终镜像</text>
+
+  <!-- 源码 -->
+  <rect x="20" y="78" width="230" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="36" y="110" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700" fill="#6b7280">项目源码</text>
+  <text x="36" y="140" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">src/ 与 package.json</text>
+  <text x="36" y="164" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">按 .dockerignore 过滤</text>
+
+  <line x1="252" y1="153" x2="322" y2="153" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="287" y="143" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6b7280">COPY</text>
+
+  <!-- builder -->
+  <rect x="330" y="78" width="230" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="346" y="110" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700" fill="#2496ed">builder 阶段</text>
+  <text x="346" y="140" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">node:20-alpine</text>
+  <text x="346" y="164" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">npm ci 装依赖</text>
+  <text x="346" y="188" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">npm run build 出产物</text>
+
+  <line x1="562" y1="153" x2="632" y2="153" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="597" y="143" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6b7280">生成</text>
+
+  <!-- 产物 -->
+  <rect x="640" y="78" width="230" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="656" y="110" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700" fill="#d97706">构建产物</text>
+  <text x="656" y="140" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">dist/ 静态文件</text>
+  <text x="656" y="164" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">HTML / JS / CSS</text>
+
+  <line x1="872" y1="153" x2="942" y2="153" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="907" y="143" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6b7280">from=builder</text>
+
+  <!-- 最终镜像 -->
+  <rect x="950" y="78" width="230" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="966" y="110" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700" fill="#16a34a">最终镜像</text>
+  <text x="966" y="140" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">nginx:1.27-alpine</text>
+  <text x="966" y="164" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">只拷 dist 与配置</text>
+  <text x="966" y="188" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">node_modules 不留</text>
+
+  <rect x="20" y="270" width="1160" height="130" rx="12" fill="none" stroke="#d8dee4" stroke-dasharray="6 4"/>
+  <text x="44" y="302" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" fill="#374151">builder 阶段只在构建时存在：依赖、编译工具、源码都不会进最终镜像</text>
+  <text x="44" y="330" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" fill="#374151">最终镜像 = 运行时基础镜像 + 构建产物，体积和攻击面一起变小</text>
+  <text x="44" y="358" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" fill="#374151">依赖没变时，builder 那几层直接命中缓存，CI 只重跑编译</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-label="数据卷生命周期示意图">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="1199" height="429" rx="16" fill="#ffffff" stroke="#e5e7eb"/>
+
+  <text x="40" y="50" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#111827">数据卷的生命周期：容器是临时的，卷不是</text>
+
+  <!-- 容器 A -->
+  <rect x="175" y="78" width="230" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="191" y="110" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700" fill="#6b7280">容器 A</text>
+  <text x="191" y="140" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">进程往 /data 里写</text>
+  <text x="191" y="164" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">容器随时可以删掉</text>
+
+  <line x1="407" y1="153" x2="481" y2="153" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="444" y="143" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6b7280">写入</text>
+
+  <!-- 命名卷 -->
+  <rect x="485" y="78" width="230" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="501" y="110" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700" fill="#d97706">命名卷 mydata</text>
+  <text x="501" y="140" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">/var/lib/docker/volumes/</text>
+  <text x="501" y="164" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">mydata/_data</text>
+  <text x="501" y="188" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">数据只存在这一份</text>
+
+  <line x1="717" y1="153" x2="791" y2="153" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="754" y="143" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6b7280">读取</text>
+
+  <!-- 容器 B -->
+  <rect x="795" y="78" width="230" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="811" y="110" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700" fill="#16a34a">容器 B（新起）</text>
+  <text x="811" y="140" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">同一个卷挂进来</text>
+  <text x="811" y="164" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">读到的还是那份数据</text>
+  <text x="811" y="188" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">容器换了，数据没换</text>
+
+  <rect x="20" y="270" width="1160" height="130" rx="12" fill="none" stroke="#d8dee4" stroke-dasharray="6 4"/>
+  <text x="44" y="302" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" fill="#374151">删掉容器 A，卷不受影响：数据从一开始就不存在容器的可写层里</text>
+  <text x="44" y="330" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" fill="#374151">新容器挂同一个卷，数据立刻接上；只有 docker volume rm 或 compose down -v 才会删卷</text>
+  <text x="44" y="358" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" fill="#374151">卷可以被多个容器同时挂载，但并发读写是否安全由应用自己保证</text>
+</svg>
