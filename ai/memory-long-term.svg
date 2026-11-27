@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-label="短期记忆与长期记忆的作用域对比">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="1199" height="429" rx="16" fill="#ffffff" stroke="#e5e7eb"/>
+
+  <text x="40" y="50" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#111827">短期记忆跟 thread 走，长期记忆跟 namespace 走</text>
+
+  <!-- 会话 A -->
+  <rect x="30" y="78" width="265" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="46" y="108" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700" fill="#6b7280">会话 A</text>
+  <text x="46" y="136" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">thread_id = t1</text>
+  <text x="46" y="162" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">checkpointer 只存 t1 的快照</text>
+  <text x="46" y="188" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">换 thread 就读不到</text>
+
+  <line x1="297" y1="153" x2="377" y2="153" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="337" y="143" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6b7280">put</text>
+
+  <!-- Store -->
+  <rect x="385" y="78" width="430" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="401" y="108" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700" fill="#d97706">Store（长期记忆）</text>
+  <text x="401" y="136" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">namespace = (“u1”, “memories”)</text>
+  <text x="401" y="162" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">key = 一条记忆的唯一标识</text>
+  <text x="401" y="188" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">value = 字典，存偏好与事实</text>
+
+  <line x1="817" y1="153" x2="897" y2="153" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="857" y="143" text-anchor="middle" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6b7280">get</text>
+
+  <!-- 会话 B -->
+  <rect x="905" y="78" width="265" height="150" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="921" y="108" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700" fill="#16a34a">会话 B（新开）</text>
+  <text x="921" y="136" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">thread_id = t2</text>
+  <text x="921" y="162" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">只要 user_id 相同</text>
+  <text x="921" y="188" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#4b5563">就能读到 A 写下的记忆</text>
+
+  <rect x="20" y="270" width="1160" height="130" rx="12" fill="none" stroke="#d8dee4" stroke-dasharray="6 4"/>
+  <text x="44" y="302" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" fill="#374151">Checkpointer 和 Store 可以同时用：前者记住“这次聊了什么”，后者记住“这个人是谁”</text>
+  <text x="44" y="330" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" fill="#374151">Store 与 thread_id 无关，只认 namespace；namespace 不带 user_id，所有用户就会共用一份数据</text>
+  <text x="44" y="358" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" fill="#374151">InMemoryStore 重启即丢，生产要换成 PostgresStore、RedisStore 这类持久化实现</text>
+</svg>

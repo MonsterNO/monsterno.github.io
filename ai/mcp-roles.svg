@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-label="MCP 的 Host、Client、Server 三角色">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="1199" height="429" rx="16" fill="#ffffff" stroke="#e5e7eb"/>
+
+  <text x="40" y="45" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#111827">MCP 的三个角色：Host 管 Client，Client 连 Server</text>
+
+  <!-- Host -->
+  <rect x="30" y="64" width="430" height="290" rx="12" fill="none" stroke="#d8dee4" stroke-dasharray="6 4"/>
+  <text x="50" y="94" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15.5" font-weight="700" fill="#2496ed">MCP Host（Agent / AI 应用）</text>
+  <text x="50" y="112" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6b7280">一个 Host 可以管多个 Client</text>
+
+  <rect x="50" y="128" width="180" height="96" rx="9" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="64" y="158" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700" fill="#6b7280">Client A</text>
+  <text x="64" y="182" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#4b5563">type: stdio</text>
+  <text x="64" y="206" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#4b5563">拉取 Tool 列表</text>
+
+  <rect x="250" y="128" width="190" height="96" rx="9" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="264" y="158" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700" fill="#6b7280">Client B</text>
+  <text x="264" y="182" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#4b5563">type: streamable_http</text>
+  <text x="264" y="206" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#4b5563">拉取 Tool 列表</text>
+
+  <rect x="50" y="242" width="390" height="90" rx="9" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="64" y="272" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="700" fill="#6b7280">Agent</text>
+  <text x="64" y="296" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#4b5563">把拿到的 Tool 交给大模型调用，不需要自己写 tool 定义</text>
+  <text x="64" y="318" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#4b5563">LangChain 里就是 create_agent(tools=await client.get_tools())</text>
+
+  <line x1="442" y1="176" x2="612" y2="176" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="442" y1="290" x2="612" y2="290" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Server A -->
+  <rect x="616" y="128" width="250" height="96" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="630" y="158" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#16a34a">Server：Time</text>
+  <text x="630" y="182" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12.5" fill="#4b5563">本地子进程，进程间通信</text>
+  <text x="630" y="206" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12.5" fill="#4b5563">没有网络延迟</text>
+
+  <!-- Server B -->
+  <rect x="616" y="242" width="250" height="90" rx="10" fill="#f8fafc" stroke="#d8dee4"/>
+  <text x="630" y="272" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#d97706">Server：高德地图</text>
+  <text x="630" y="296" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12.5" fill="#4b5563">远端服务，走 HTTP</text>
+  <text x="630" y="318" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12.5" fill="#4b5563">有一定网络延迟</text>
+
+  <line x1="892" y1="176" x2="892" y2="286" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="916" y="150" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#6b7280">Server 提供能力</text>
+  <text x="916" y="176" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#6b7280">Client 读取 Tool 清单</text>
+  <text x="916" y="202" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#6b7280">Host 把 Tool 交给模型</text>
+  <text x="916" y="238" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#6b7280">谁都不用重复写 tool</text>
+
+  <rect x="20" y="372" width="1160" height="46" rx="10" fill="none" stroke="#d8dee4" stroke-dasharray="6 4"/>
+  <text x="44" y="400" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#374151">同一个 Host 里，stdio 与 streamable_http 两种传输可以混用；Server 换成别人的实现，Host 那段代码不用改</text>
+</svg>
